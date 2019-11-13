@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <link rel="stylesheet" href="userlog.css">
     <title>회원가입</title>
     <h1>
@@ -160,7 +161,25 @@
 
 
     </body>
+    <script>
+        $document.ready(function(){
+            $(".submit-text").click(function(){
+                $.ajax({
+                type:"GET",
+                url:"http://210.181.138.119:7013r",
+                dataType:"text",
 
+                success : function(data){
+                    alert("회원가입 성공");
+                },
+                error : function(xhr, status , error){
+                    alert("error");
+                }
+            });
+            });
+            
+        });
+    </script>
     <script>
         function exeDaumPostcode() {
             new daum.Postcode({
